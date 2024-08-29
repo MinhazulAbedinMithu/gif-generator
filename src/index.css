@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes border-pulse {
+  0% {
+    border-color: #ff0000;
+  }
+  25% {
+    border-color: #00ff00;
+  }
+  50% {
+    border-color: #0000ff;
+  }
+  75% {
+    border-color: #ffff00;
+  }
+  100% {
+    border-color: #ff0000;
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.company-input {
+  animation: slide-in 1s forwards;
+}
