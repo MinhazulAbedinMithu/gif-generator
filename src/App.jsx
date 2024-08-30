@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { toPng } from "html-to-image";
 import gifshot from "gifshot";
+import videoFire from "./assets/video-2.mp4"
 
 const App = () => {
   const [companyName, setCompanyName] = useState("");
@@ -165,16 +166,38 @@ const App = () => {
         }}
         className="mx-auto flex items-center justify-between  bg-white relative overflow-hidden rounded-md"
       >
+
+        {/* Background Video */}
+  <video
+    autoPlay
+    loop
+    muted
+    style={{
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      minWidth: "100%",
+      minHeight: "100%",
+      width: "auto",
+      height: "auto",
+      zIndex: 1, // Set the video behind other elements
+      transform: "translate(-50%, -50%)",
+      objectFit: "cover"
+    }}
+  >
+    <source src={videoFire} type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
         <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent transform z-10 overflow-hidden"></div>
         <div className="company-name text-lg text-amber-300 animate-pulse font-bold z-20 pl-4">
           {companyName}
         </div>
-        <div className={`absolute left-[40%] h-[94px] w-1 rotate-12 animate-pulse shadow-lg drop-shadow-lg before:content-[" "] before:left-[40%] before:w-[4px] before:h-full before:bg-green-500`}
+        <div className={`absolute left-[40%] h-[94px] w-1 rotate-12 animate-pulse shadow-lg drop-shadow-lg before:content-[" "] before:left-[40%] before:w-[4px] before:h-full before:bg-green-500 z-[999]`}
           style={{
             backgroundColor: borderColor
           }}
         ></div>
-        <div className="company-input text-lg text-white z-20 pr-4 animate-slide-in" style={{color: borderColor}}></div>
+        <div className="company-input text-lg text-white z-20 pr-4 animate-slide-in font-bold" style={{color: borderColor}}></div>
       </div>
 
       {loading && (
