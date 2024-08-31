@@ -1,7 +1,8 @@
 import { useState, useRef } from "react";
 import { toPng } from "html-to-image";
 import gifshot from "gifshot";
-import videoFire from "./assets/video-2.mp4"
+import videoFire from "./assets/video-2.mp4";
+import { motion } from "framer-motion"
 
 const App = () => {
   const [companyName, setCompanyName] = useState("");
@@ -189,9 +190,9 @@ const App = () => {
     Your browser does not support the video tag.
   </video>
         <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent transform z-10 overflow-hidden"></div>
-        <div className="company-name text-lg text-amber-300 animate-pulse font-bold z-20 pl-4">
+        <motion.div initial={{x:-50}} animate={{ x: 0 }} className="company-name text-lg text-amber-300 animate-pulse font-bold z-20 pl-4">
           {companyName}
-        </div>
+        </motion.div>
         <div className={`absolute left-[40%] h-[94px] w-1 rotate-12 animate-pulse shadow-lg drop-shadow-lg before:content-[" "] before:left-[40%] before:w-[4px] before:h-full before:bg-green-500 z-[999]`}
           style={{
             backgroundColor: borderColor
